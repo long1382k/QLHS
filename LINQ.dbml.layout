@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="LINQ">
+  <DataContextMoniker Name="/LINQDataContext" />
+  <nestedChildShapes>
+    <classShape Id="0b258ce0-b152-4853-8557-456f66884d20" absoluteBounds="8.375, 2.625, 2, 2.8854931842287379">
+      <DataClassMoniker Name="/LINQDataContext/DuAn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="74ed3f12-4b93-4091-8e17-61b1b124f9ff" absoluteBounds="8.39, 3.085, 1.9700000000000002, 2.3254931842287379" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a3cded49-888b-4ba9-a423-f805f8707a82" absoluteBounds="4.75, 2.625, 2, 1.7505064557989436">
+      <DataClassMoniker Name="/LINQDataContext/NhanVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="71e4339d-64aa-4db6-b7a7-cb5b05666ded" absoluteBounds="4.765, 3.085, 1.9700000000000002, 1.1905064557989438" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(6.75 : 3.50025322789947); (8.375 : 3.50025322789947)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LINQDataContext/NhanVien/NhanVien_DuAn" />
+      <nodes>
+        <classShapeMoniker Id="a3cded49-888b-4ba9-a423-f805f8707a82" />
+        <classShapeMoniker Id="0b258ce0-b152-4853-8557-456f66884d20" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.75 : 3.00012661394974); (8.375 : 3.00012661394974)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LINQDataContext/NhanVien/NhanVien_DuAn1" />
+      <nodes>
+        <classShapeMoniker Id="a3cded49-888b-4ba9-a423-f805f8707a82" />
+        <classShapeMoniker Id="0b258ce0-b152-4853-8557-456f66884d20" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="2a00352a-afd0-4b1b-9432-6fd95433e2c3" absoluteBounds="6, 0.5, 2, 1.5613420010606447">
+      <DataClassMoniker Name="/LINQDataContext/NhanVien_DuAn" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f5524d38-2107-4e41-abf9-a533aa88acb0" absoluteBounds="6.015, 0.96, 1.9700000000000002, 1.0013420010606446" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(8.375 : 2.625); (8 : 2.06134200106064)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LINQDataContext/DuAn/DuAn_NhanVien_DuAn" />
+      <nodes>
+        <classShapeMoniker Id="0b258ce0-b152-4853-8557-456f66884d20" />
+        <classShapeMoniker Id="2a00352a-afd0-4b1b-9432-6fd95433e2c3" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.375 : 2.625); (6.375 : 2.06134200106064)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/LINQDataContext/NhanVien/NhanVien_NhanVien_DuAn" />
+      <nodes>
+        <classShapeMoniker Id="a3cded49-888b-4ba9-a423-f805f8707a82" />
+        <classShapeMoniker Id="2a00352a-afd0-4b1b-9432-6fd95433e2c3" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QUANLYHOSO" Class="LINQDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-NSHA70OK\SQLEXPRESS01;Initial Catalog=QUANLYHOSO;Integrated Security=True" SettingsObjectName="QLHS.Properties.Settings" SettingsPropertyName="QUANLYHOSOConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DuAn" Member="DuAns">
+    <Type Name="DuAn">
+      <Column Name="MaDuAn" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDuAn" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DiaDiem" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DienTich" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NgayBatDau" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NgayKetThuc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GiaTriHopDong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GiaTriThanhQuyetToan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaDoiTruong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNguoiLapHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FileDinhKem" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+      <Association Name="DuAn_NhanVien_DuAn" Member="NhanVien_DuAns" ThisKey="MaDuAn" OtherKey="MaDuAn" Type="NhanVien_DuAn" />
+      <Association Name="NhanVien_DuAn" Member="NhanVien" ThisKey="MaDoiTruong" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
+      <Association Name="NhanVien_DuAn1" Member="NhanVien1" ThisKey="MaNguoiLapHoSo" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien" Member="NhanViens">
+    <Type Name="NhanVien">
+      <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenNhanVien" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="CapBacHienTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ChucVuHienTai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TrangThai" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="NhanVien_DuAn" Member="DuAns" ThisKey="MaNhanVien" OtherKey="MaDoiTruong" Type="DuAn" />
+      <Association Name="NhanVien_DuAn1" Member="DuAns1" ThisKey="MaNhanVien" OtherKey="MaNguoiLapHoSo" Type="DuAn" />
+      <Association Name="NhanVien_NhanVien_DuAn" Member="NhanVien_DuAns" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien_DuAn" />
+    </Type>
+  </Table>
+  <Table Name="dbo.NhanVien_DuAn" Member="NhanVien_DuAns">
+    <Type Name="NhanVien_DuAn">
+      <Column Name="MaNhanVien" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MaDuAn" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="CapBac" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ChucVu" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Association Name="DuAn_NhanVien_DuAn" Member="DuAn" ThisKey="MaDuAn" OtherKey="MaDuAn" Type="DuAn" IsForeignKey="true" />
+      <Association Name="NhanVien_NhanVien_DuAn" Member="NhanVien" ThisKey="MaNhanVien" OtherKey="MaNhanVien" Type="NhanVien" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.suaduan" Method="suaduan">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tenduan" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="diadiem" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="dientich" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ngaybatdau" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="ngayketthuc" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="gthd" Type="System.Double" DbType="Float" />
+    <Parameter Name="gttqt" Type="System.Double" DbType="Float" />
+    <Parameter Name="nth" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dttc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="file" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.suanhanvien" Method="suanhanvien">
+    <Parameter Name="manhanvien" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tennhanvien" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="capbac" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="chucvu" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="trangthai" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.themduan" Method="themduan">
+    <Parameter Name="tenduan" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="diadiem" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="dientich" Type="System.String" DbType="VarChar(50)" />
+    <Parameter Name="ngaybatdau" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="ngayketthuc" Type="System.String" DbType="VarChar(10)" />
+    <Parameter Name="gthd" Type="System.Double" DbType="Float" />
+    <Parameter Name="gttqt" Type="System.Double" DbType="Float" />
+    <Parameter Name="nth" Type="System.Int32" DbType="Int" />
+    <Parameter Name="dttc" Type="System.Int32" DbType="Int" />
+    <Parameter Name="file" Type="System.String" DbType="VarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.themnhanvien" Method="themnhanvien">
+    <Parameter Name="tennhanvien" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="capbac" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="chucvu" Type="System.String" DbType="NVarChar(200)" />
+    <Parameter Name="trangthai" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.xoaduan" Method="xoaduan">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.lay_capbac" Method="lay_capbac" IsComposable="true">
+    <Parameter Name="manhanvien" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_chucvu" Method="lay_chucvu" IsComposable="true">
+    <Parameter Name="manhanvien" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_cottenduan" Method="lay_cottenduan" IsComposable="true">
+    <ElementType Name="lay_cottenduanResult">
+      <Column Name="tenduan" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.lay_cottennhanvien" Method="lay_cottennhanvien" IsComposable="true">
+    <ElementType Name="lay_cottennhanvienResult">
+      <Column Name="tennhanvien" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.lay_diadiem" Method="lay_diadiem" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_dientich" Method="lay_dientich" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_filedinhkiem" Method="lay_filedinhkiem" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_giatrihopdong" Method="lay_giatrihopdong" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Double" />
+  </Function>
+  <Function Name="dbo.lay_giatrithanhquyettoan" Method="lay_giatrithanhquyettoan" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Double" />
+  </Function>
+  <Function Name="dbo.lay_madoitruong" Method="lay_madoitruong" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.lay_manguoilaphoso" Method="lay_manguoilaphoso" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.lay_manhanvien" Method="lay_manhanvien" IsComposable="true">
+    <Parameter Name="tennhanvien" Type="System.String" DbType="NVarChar(200)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.lay_ngaybatdau" Method="lay_ngaybatdau" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_ngayketthuc" Method="lay_ngayketthuc" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_tenduan" Method="lay_tenduan" IsComposable="true">
+    <Parameter Name="maduan" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_tennhanvien" Method="lay_tennhanvien" IsComposable="true">
+    <Parameter Name="manhanvien" Type="System.Int32" DbType="Int" />
+    <Return Type="System.String" />
+  </Function>
+  <Function Name="dbo.lay_trangthai" Method="lay_trangthai" IsComposable="true">
+    <Parameter Name="manhanvien" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.laybangduan" Method="laybangduan" IsComposable="true">
+    <ElementType Name="laybangduanResult">
+      <Column Name="MaDuAn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenDuAn" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DiaDiem" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DienTich" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NgayBatDau" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NgayKetThuc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GiaTriHopDong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GiaTriThanhQuyetToan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaDoiTruong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNguoiLapHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenDoiTruong" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TenNguoiLapHoSo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FileDinhKem" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.laybangnhanvien" Method="laybangnhanvien" IsComposable="true">
+    <ElementType Name="laybangnhanvienResult">
+      <Column Name="manhanvien" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="tennhanvien" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="capbachientai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="chucvuhientai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="tentrangthai" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.timkiem_nam" Method="timkiem_nam" IsComposable="true">
+    <Parameter Name="nam" Type="System.Int32" DbType="Int" />
+    <ElementType Name="timkiem_namResult">
+      <Column Name="MaDuAn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenDuAn" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DiaDiem" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DienTich" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NgayBatDau" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NgayKetThuc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GiaTriHopDong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GiaTriThanhQuyetToan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaDoiTruong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNguoiLapHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FileDinhKem" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.timkiem_tenduan" Method="timkiem_tenduan" IsComposable="true">
+    <Parameter Name="ten" Type="System.String" DbType="NVarChar(200)" />
+    <ElementType Name="timkiem_tenduanResult">
+      <Column Name="MaDuAn" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenDuAn" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DiaDiem" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DienTich" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NgayBatDau" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NgayKetThuc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GiaTriHopDong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GiaTriThanhQuyetToan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="MaDoiTruong" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MaNguoiLapHoSo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FileDinhKem" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.lay_bangduan" Method="lay_bangduan" IsComposable="true">
+    <ElementType Name="lay_bangduanResult">
+      <Column Name="MaDuAn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="TenDuAn" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DiaDiem" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DienTich" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NgayBatDau" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NgayKetThuc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GiaTriHopDong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GiaTriThanhQuyetToan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TenDoiTruong" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TenNguoiLapHoSo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FileDinhKem" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.lay_bangduan1" Method="lay_bangduan1" IsComposable="true">
+    <ElementType Name="lay_bangduan1Result">
+      <Column Name="MaDuAn" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="STT" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenDuAn" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DiaDiem" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="DienTich" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="NgayBatDau" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NgayKetThuc" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="GiaTriHopDong" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="GiaTriThanhQuyetToan" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="TenDoiTruong" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="TenNguoiLapHoSo" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FileDinhKem" Type="System.String" DbType="NVarChar(2000)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+</Database>
