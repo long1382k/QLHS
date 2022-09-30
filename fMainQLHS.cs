@@ -11,6 +11,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using QLHS.QLNhanSu;
+using System.Diagnostics;
 
 namespace QLHS
 {
@@ -63,8 +65,11 @@ namespace QLHS
             {
                 lblDay.Text = day.ToString() + "/" + month.ToString() + "/" + year.ToString();
             }
+
+            
+            
         }
-        private void timerHome_Tick(object sender, EventArgs e)
+            private void timerHome_Tick(object sender, EventArgs e)
         {
             lblTime.Text = DateTime.Now.ToLongTimeString();
         }
@@ -81,7 +86,48 @@ namespace QLHS
                     Thread t = new Thread(new ThreadStart(fMainQLHS.frLoading));
                     t.Start();
                     SuperTabItem tabItem = superTabMain.CreateTab(tabName);
-                    frToanBoHoSo fToanBoHoSo = new frToanBoHoSo(superTabMain);
+                    frToanBoHoSo fToanBoHoSo = new frToanBoHoSo(superTabMain, Subform.TabChucNang.toanbo);
+                    fToanBoHoSo.TopLevel = false;
+                    fToanBoHoSo.Dock = DockStyle.Fill;
+                    tabItem.AttachedControl.Controls.Add(fToanBoHoSo);
+                    fToanBoHoSo.Show();
+                    if (superTabMain == null)
+                    {
+                        return;
+                    }
+
+                    superTabMain.SelectedTabIndex = superTabMain.Tabs.Count - 1;
+                    t.Abort(); // đóng thread
+                }
+                catch (Exception E) { MessageBoxEx.Show(E.ToString()); }
+            }
+        }
+        // Hàm hiển thị loading
+        public static void frLoading()
+        {
+            try
+            {
+                Application.Run(new frLoading());
+            }
+            catch
+            {
+                
+            }
+        }
+
+        private void buttonItem3_Click(object sender, EventArgs e)
+        {
+            string tabName = "Sắp xếp theo tên";
+            bool testsata = uCheckTab.checkExitTab(tabName, superTabMain);
+            if (!uCheckTab.checkExitTab(tabName, superTabMain))
+            {
+                try
+                {
+                    // khởi tạo thread
+                    Thread t = new Thread(new ThreadStart(fMainQLHS.frLoading));
+                    t.Start();
+                    SuperTabItem tabItem = superTabMain.CreateTab(tabName);
+                    frToanBoHoSo fToanBoHoSo = new frToanBoHoSo(superTabMain, Subform.TabChucNang.theoten);
                     fToanBoHoSo.TopLevel = false;
                     fToanBoHoSo.Dock = DockStyle.Fill;
                     tabItem.AttachedControl.Controls.Add(fToanBoHoSo);
@@ -92,10 +138,96 @@ namespace QLHS
                 catch (Exception E) { MessageBoxEx.Show(E.ToString()); }
             }
         }
-        // Hàm hiển thị loading
-        public static void frLoading()
+
+        private void buttonItem4_Click(object sender, EventArgs e)
         {
-            Application.Run(new frLoading());
+            string tabName = "Sắp xếp theo năm";
+            bool testsata = uCheckTab.checkExitTab(tabName, superTabMain);
+            if (!uCheckTab.checkExitTab(tabName, superTabMain))
+            {
+                try
+                {
+                    // khởi tạo thread
+                    Thread t = new Thread(new ThreadStart(fMainQLHS.frLoading));
+                    t.Start();
+                    SuperTabItem tabItem = superTabMain.CreateTab(tabName);
+                    frToanBoHoSo fToanBoHoSo = new frToanBoHoSo(superTabMain, Subform.TabChucNang.theonam);
+                    fToanBoHoSo.TopLevel = false;
+                    fToanBoHoSo.Dock = DockStyle.Fill;
+                    tabItem.AttachedControl.Controls.Add(fToanBoHoSo);
+                    fToanBoHoSo.Show();
+                    superTabMain.SelectedTabIndex = superTabMain.Tabs.Count - 1;
+                    t.Abort(); // đóng thread
+                }
+                catch (Exception E) { MessageBoxEx.Show(E.ToString()); }
+            }
+        }
+
+        private void btn_nhansu_Click(object sender, EventArgs e)
+        {
+            string tabName = "Nhân sự đơn vị";
+            bool testsata = uCheckTab.checkExitTab(tabName, superTabMain);
+            if (!uCheckTab.checkExitTab(tabName, superTabMain))
+            {
+                try
+                {
+                    // khởi tạo thread
+                    Thread t = new Thread(new ThreadStart(fMainQLHS.frLoading));
+                    t.Start();
+                    SuperTabItem tabItem = superTabMain.CreateTab(tabName);
+                    frToanBoNhanVien fToanBoHoSo = new frToanBoNhanVien(superTabMain);
+                    fToanBoHoSo.TopLevel = false;
+                    fToanBoHoSo.Dock = DockStyle.Fill;
+                    tabItem.AttachedControl.Controls.Add(fToanBoHoSo);
+                    fToanBoHoSo.Show();
+                    superTabMain.SelectedTabIndex = superTabMain.Tabs.Count - 1;
+                    t.Abort(); // đóng thread
+                }
+                catch (Exception E) { MessageBoxEx.Show(E.ToString()); }
+            }
+        }
+
+        private void btn_chuyengia_Click(object sender, EventArgs e)
+        {
+            string tabName = "Nhân sự đối tác";
+            bool testsata = uCheckTab.checkExitTab(tabName, superTabMain);
+            if (!uCheckTab.checkExitTab(tabName, superTabMain))
+            {
+                try
+                {
+                    // khởi tạo thread
+                    Thread t = new Thread(new ThreadStart(fMainQLHS.frLoading));
+                    t.Start();
+                    SuperTabItem tabItem = superTabMain.CreateTab(tabName);
+                    frToanBoChuyenGia fToanBoHoSo = new frToanBoChuyenGia(superTabMain);
+                    fToanBoHoSo.TopLevel = false;
+                    fToanBoHoSo.Dock = DockStyle.Fill;
+                    tabItem.AttachedControl.Controls.Add(fToanBoHoSo);
+                    fToanBoHoSo.Show();
+                    superTabMain.SelectedTabIndex = superTabMain.Tabs.Count - 1;
+                    t.Abort(); // đóng thread
+                }
+                catch (Exception E) { MessageBoxEx.Show(E.ToString()); }
+            }
+        }
+
+        private void btn_huongdansd_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(Application.StartupPath + @"\Guide\HuongDan.pdf");
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Không tìm thấy tài liệu hướng dẫn, vui lòng liên hệ quản trị viên.","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+        }
+
+        private void btn_thongtinpm_Click(object sender, EventArgs e)
+        {
+            frContact fr = new frContact();
+            fr.ShowDialog();
         }
     }
 }

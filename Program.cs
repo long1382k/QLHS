@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-
+using QLHS.SubForms;
 namespace QLHS
 {
     static class Program
@@ -15,7 +15,7 @@ namespace QLHS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new fMainQLHS());
+           Application.Run(new fMainQLHS());
         }
     }
 }

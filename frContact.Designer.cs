@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frContact));
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -36,10 +35,11 @@
             // pictureBox1
             // 
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Image = global::QLHS.Properties.Resources._11;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(532, 213);
+            this.pictureBox1.Size = new System.Drawing.Size(619, 298);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
@@ -49,7 +49,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BottomLeftCornerSize = 0;
             this.BottomRightCornerSize = 0;
-            this.ClientSize = new System.Drawing.Size(532, 213);
+            this.ClientSize = new System.Drawing.Size(619, 298);
             this.Controls.Add(this.pictureBox1);
             this.DoubleBuffered = true;
             this.EnableGlass = false;
@@ -58,7 +58,7 @@
             this.MinimizeBox = false;
             this.Name = "frContact";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Thông tin phần mềm Quản lý hồ sơ và văn bản";
+            this.Text = "Thông tin phần mềm quản lý hồ sơ - BOMICEN";
             this.TopLeftCornerSize = 0;
             this.TopRightCornerSize = 0;
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

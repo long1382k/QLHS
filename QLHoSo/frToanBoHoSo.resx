@@ -159,6 +159,27 @@
         l69RsA4CCx5MIaHhw4gRBgQAOw==
 </value>
   </data>
+  <data name="buttonItem1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        R0lGODlhEAAUAIcAAAAAAIAAAACAAICAAAAAgIAAgACAgMDAwMDcwKbK8C8lLCMlPz0tKDMyQy9EbEUu
+        Jlc8I2U7IkMTV3JMHUpHR0pLWUBIZExYalhifm1Kb21NfjEAnGE7p1VkhGhsmm+EpnuQs3udvVew+Jpj
+        FcJ7DP8A/7SiObmcQOuSBOaUGP+mAP+3AP/CAP/TAPDtC//kAP/1APf7P4aNspSjuaKntIqkyZ+10Z2w
+        46q4z6Ky0rLA177I27LG4bXH59Sp1uLnluXyifb6sMTO38vT49La59Xf7Nvx4uPo8Of3/+vw+vb29vf6
+        /v7+/v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+        AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP/78KCgpICAgP8AAAD/AP//AAAA//8A/wD/////
+        /yH/C05FVFNDQVBFMi4wAwEBAAAh+QQBAAAlACwAAAAAEAAUAAAInQBLCBxIsKDBgwgL3vChQUJBHRAj
+        6hARokKDh00yavxxgoEHjBqbIImxAoIMHgRxZNzAcoMLFQpyXEgZsokRGCgW9HBA0MZKlhlekLAwg+dA
+        GjWBtBjRoSjBGT83mGAx4YPTgVBDBknxoMZVgVlbcoiAYcjXElmbMFGSBAQRIWfTLklypMiQHXGbzNjL
+        l69RsA4CCx5MIaHhw4gRBgQAOw==
+</value>
+  </data>
   <data name="btnXoaHoSo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         R0lGODlhEAAUAIcAAP8AAP8A/////wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
@@ -250,6 +271,9 @@
     <value>True</value>
   </metadata>
   <metadata name="MaDuAn.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="btnInDanhMuc.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
